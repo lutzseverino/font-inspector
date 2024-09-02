@@ -13,7 +13,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ className }) => {
     <nav
       className={cn(
         className,
-        "flex p-4 border-b border-neutral-200 justify-between",
+        "flex p-4 border-b border-neutral-200 justify-between items-center",
       )}
     >
       <div>
