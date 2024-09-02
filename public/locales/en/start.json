@@ -1,0 +1,6 @@
+{
+  "file-types": ".ttf, .otf",
+  "drop-to-start": "Drop {{fileTypes}} files here to start",
+  "file-type-out-of-range": "The file type is not supported. Please upload a {{fileTypes}} file",
+  "evaluating": "Evaluating"
+}
