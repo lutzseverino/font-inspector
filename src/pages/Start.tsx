@@ -14,11 +14,11 @@ import {
 import useFontContext from "@/hooks/useFontContext.tsx";
 
 const Start = () => {
-  const { t } = useTranslation(["app", "start"]);
+  const { t } = useTranslation(["app", "pages/start"]);
   const { font, setFont } = useFontContext();
 
-  const fileTypes = t("start:file-types");
-  const dropToStart = t("start:drop-to-start", { fileTypes });
+  const fileTypes = t("pages/start:file-types");
+  const dropToStart = t("pages/start:drop-to-start", { fileTypes });
 
   const handleFileAreaChange = useCallback(
     (files: File[]) => {
@@ -28,11 +28,11 @@ const Start = () => {
   );
 
   const handleFileTypeOutOfRange = useCallback(() => {
-    toast.error(t("start:file-type-out-of-range", { fileTypes }));
+    toast.error(t("pages/start:file-type-out-of-range", { fileTypes }));
   }, [fileTypes, t]);
 
   return (
-    <Layout fullscreen>
+    <Layout fullscreen disablePadding>
       <FileArea
         className="flex h-full items-center justify-center"
         invisible
@@ -54,7 +54,7 @@ const Start = () => {
                   <Muted>
                     <Spinner className="mr-2 inline" />
                     <span className="align-middle">
-                      {`${t("start:evaluating")} ${font?.name}`}
+                      {`${t("pages/start:evaluating")} ${font?.name}`}
                     </span>
                   </Muted>
                 </div>
