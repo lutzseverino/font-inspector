@@ -1,6 +1,7 @@
-import Start from "@/pages/Start.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import { FontProvider } from "@/contexts/FontContext";
+import Start from "@/pages/Start.tsx";
 
 const router = createBrowserRouter([
   {

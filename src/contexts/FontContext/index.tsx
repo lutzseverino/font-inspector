@@ -1,5 +1,5 @@
-import { createContext, FunctionComponent, useMemo, useState } from "react";
 import { FontContextType, FontProviderProps } from "./index.d";
+import { FunctionComponent, createContext, useMemo, useState } from "react";
 
 const initialContext: FontContextType = {
   font: null,

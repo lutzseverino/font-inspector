@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
 import { LayoutProps } from "./index.d";
+import { FunctionComponent } from "react";
 
 const Layout: FunctionComponent<LayoutProps> = ({
   fullscreen = false,

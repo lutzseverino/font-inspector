@@ -1,5 +1,6 @@
-import { FunctionComponent } from "react";
 import { TypographyProps } from "./index.d";
+import { FunctionComponent } from "react";
+
 import { cn } from "@/lib/utils.ts";
 
 const Heading1: FunctionComponent<TypographyProps> = ({
