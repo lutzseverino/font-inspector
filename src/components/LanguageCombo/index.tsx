@@ -16,8 +16,6 @@ const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {
     value: language,
   }));
 
-  console.log("Items", items);
-
   const handleGetLabel = useCallback((item: LanguageItem) => item.label, []);
   const handleGetValue = useCallback((item: LanguageItem) => item.value, []);
 
