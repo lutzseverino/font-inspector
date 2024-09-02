@@ -1,5 +1,6 @@
-import { FunctionComponent, useEffect } from "react";
 import { FileAreaProps, FileAreaSectionProps } from "./index.d";
+import { FunctionComponent, useEffect } from "react";
+
 import useFileDrop from "@/hooks/useFileDrop.tsx";
 import { cn } from "@/lib/utils.ts";
 
@@ -10,7 +11,7 @@ export const FileAreaSection: FunctionComponent<FileAreaSectionProps> = ({
 }) => {
   return (
     <section
-      className={`${cn(className, `cursor-pointer rounded-lg ${invisible ? "" : "border border-dashed border-neutral-300"} p-2`)}`}
+      className={`${cn(className, `cursor-pointer rounded-xl ${invisible ? "" : "border border-dashed border-neutral-300"} p-2`)}`}
     >
       {children}
     </section>
