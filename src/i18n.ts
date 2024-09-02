@@ -14,7 +14,7 @@ i18n
     load: "languageOnly",
     fallbackLng: "en",
     supportedLngs: ["en", "es"],
-    defaultNS: "",
+    defaultNS: "app",
     fallbackNS: "",
     ns: [],
     partialBundledLanguages: true,
