@@ -4,6 +4,7 @@
     "@trivago/prettier-plugin-sort-imports"
   ],
   "importOrder": [
+    "^[^@].*$",
     "^@/",
     "^@/lib/",
     "^@/contexts/",
