@@ -10,8 +10,8 @@ import {
   InlineCode,
   Lead,
   Muted,
-} from "@/components/Typography/index.tsx";
-import useFontContext from "@/hooks/useFontContext.tsx";
+} from "@/components/ui/Typography/index.tsx";
+import useFont from "@/hooks/useFont.tsx";
 
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
