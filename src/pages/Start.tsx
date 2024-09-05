@@ -2,9 +2,9 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
-import FileArea, { FileAreaSection } from "@/components/FileArea/index.tsx";
 import Layout from "@/components/Layout/index.tsx";
-import { Spinner } from "@/components/Spinner/index.tsx";
+import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
+import { Spinner } from "@/components/ui/Spinner/index.tsx";
 import {
   Heading3,
   InlineCode,

@@ -1,5 +1,5 @@
 import { FileAreaProps, FileAreaSectionProps } from "./index.d";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useEffect, useRef } from "react";
 
 import useFileDrop from "@/hooks/useFileDrop.tsx";
 import { cn } from "@/lib/utils.ts";
@@ -11,7 +11,10 @@ export const FileAreaSection: FunctionComponent<FileAreaSectionProps> = ({
 }) => {
   return (
     <section
-      className={`${cn(className, `cursor-pointer rounded-xl ${invisible ? "" : "border border-dashed border-neutral-300"} p-2`)}`}
+      className={`${cn(
+        className,
+        `cursor-pointer rounded-xl ${invisible ? "" : "border border-dashed border-input"} p-2`,
+      )}`}
     >
       {children}
     </section>
@@ -30,19 +33,23 @@ const FileArea: FunctionComponent<FileAreaProps> = ({
   const { files, accept, handleFileChange, handleDrop, handleDragOver } =
     useFileDrop(fileTypes);
 
-  useEffect(() => {
-    const outOfRangeFile = files.find((file) => {
-      if (!fileTypes.includes("any")) {
-        const fileExtension = `.${file.name.split(".").pop()}`;
-        return !fileTypes.includes(fileExtension);
-      }
-      return false;
-    });
+  const prevFilesRef = useRef(files);
 
-    if (outOfRangeFile) {
-      onFileTypeOutOfRange(outOfRangeFile);
-    } else onChange(files);
-  }, [fileTypes, files, onChange, onFileTypeOutOfRange]);
+  useEffect(() => {
+    if (prevFilesRef.current !== files) {
+      const outOfRangeFile = files.find((file) => {
+        let execute = false;
+        if (!fileTypes.includes("any")) {
+          const fileExtension = `.${file.name.split(".").pop()}`;
+          execute = !fileTypes.includes(fileExtension);
+        }
+        return execute;
+      });
+      if (outOfRangeFile) onFileTypeOutOfRange(outOfRangeFile);
+      else onChange(files);
+      prevFilesRef.current = files;
+    }
+  }, [files, fileTypes, onChange, onFileTypeOutOfRange]);
 
   return (
     <FileAreaSection className={className} invisible={invisible}>
