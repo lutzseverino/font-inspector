@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
@@ -15,9 +15,10 @@ import useFont from "@/hooks/useFont.tsx";
 
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
-  const { font, setFont } = useFontContext();
+  const { font, setFont } = useFont();
 
   const fileTypes = t("pages/start:file-types");
+  const fileTypeArray = useMemo(() => fileTypes.split(", "), [fileTypes]);
   const dropToStart = t("pages/start:drop-to-start", { fileTypes });
 
   const handleFileAreaChange = useCallback(
@@ -32,11 +33,18 @@ const Start = () => {
   }, [fileTypes, t]);
 
   return (
-    <Layout fullscreen disablePadding>
+    <Layout
+      fullscreen
+      disablePadding
+      navbarProps={{
+        hidden: true,
+        hideTitle: true,
+      }}
+    >
       <FileArea
         className="flex h-full items-center justify-center"
         invisible
-        fileTypes={fileTypes.split(", ")}
+        fileTypes={fileTypeArray}
         onChange={handleFileAreaChange}
         onFileTypeOutOfRange={handleFileTypeOutOfRange}
       >
