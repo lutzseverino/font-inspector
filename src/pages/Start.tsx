@@ -1,24 +1,25 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
-import FileArea, { FileAreaSection } from "@/components/FileArea/index.tsx";
 import Layout from "@/components/Layout/index.tsx";
-import { Spinner } from "@/components/Spinner/index.tsx";
+import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
+import { Spinner } from "@/components/ui/Spinner/index.tsx";
 import {
   Heading3,
   InlineCode,
   Lead,
   Muted,
-} from "@/components/Typography/index.tsx";
-import useFontContext from "@/hooks/useFontContext.tsx";
+} from "@/components/ui/Typography/index.tsx";
+import useFont from "@/hooks/useFont.tsx";
 
 const Start = () => {
-  const { t } = useTranslation(["app", "start"]);
-  const { font, setFont } = useFontContext();
+  const { t } = useTranslation(["app", "pages/start"]);
+  const { font, setFont } = useFont();
 
-  const fileTypes = t("start:file-types");
-  const dropToStart = t("start:drop-to-start", { fileTypes });
+  const fileTypes = t("pages/start:file-types");
+  const fileTypeArray = useMemo(() => fileTypes.split(", "), [fileTypes]);
+  const dropToStart = t("pages/start:drop-to-start", { fileTypes });
 
   const handleFileAreaChange = useCallback(
     (files: File[]) => {
@@ -28,15 +29,22 @@ const Start = () => {
   );
 
   const handleFileTypeOutOfRange = useCallback(() => {
-    toast.error(t("start:file-type-out-of-range", { fileTypes }));
+    toast.error(t("pages/start:file-type-out-of-range", { fileTypes }));
   }, [fileTypes, t]);
 
   return (
-    <Layout fullscreen>
+    <Layout
+      fullscreen
+      disablePadding
+      navbarProps={{
+        hidden: true,
+        hideTitle: true,
+      }}
+    >
       <FileArea
         className="flex h-full items-center justify-center"
         invisible
-        fileTypes={fileTypes.split(", ")}
+        fileTypes={fileTypeArray}
         onChange={handleFileAreaChange}
         onFileTypeOutOfRange={handleFileTypeOutOfRange}
       >
@@ -54,7 +62,7 @@ const Start = () => {
                   <Muted>
                     <Spinner className="mr-2 inline" />
                     <span className="align-middle">
-                      {`${t("start:evaluating")} ${font?.name}`}
+                      {`${t("pages/start:evaluating")} ${font?.name}`}
                     </span>
                   </Muted>
                 </div>

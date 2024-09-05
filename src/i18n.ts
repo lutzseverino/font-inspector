@@ -14,14 +14,15 @@ i18n
     load: "languageOnly",
     fallbackLng: "en",
     supportedLngs: ["en", "es"],
-    defaultNS: "",
+    preload: ["en", "es"],
+    defaultNS: "metadata",
     fallbackNS: "",
     ns: [],
     partialBundledLanguages: true,
     interpolation: {
       escapeValue: false,
     },
-    debug: true,
+    debug: false,
   });
 
 export default i18n;

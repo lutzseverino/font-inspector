@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { FontContext } from "@/contexts/FontContext";
+import { FontContext } from "@/providers/FontProvider";
 
 const useFont = () => {
   const context = useContext(FontContext);

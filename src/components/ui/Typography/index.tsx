@@ -1,4 +1,4 @@
-import { TypographyProps } from "./index.d";
+import { TypographyProps } from "./index";
 import { FunctionComponent } from "react";
 
 import { cn } from "@/lib/utils.ts";
