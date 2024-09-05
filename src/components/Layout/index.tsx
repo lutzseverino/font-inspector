@@ -11,7 +11,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
   children,
 }) => {
   return (
-    <div className={`flex flex-col min-h-screen ${fullscreen && "h-screen"} `}>
+    <div className={`flex flex-col min-h-svh ${fullscreen && "h-svh"} `}>
       {!hideNavbar && <Navbar {...navbarProps} />}
       <div className="grow relative">
         <div
