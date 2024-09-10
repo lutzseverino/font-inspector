@@ -2,9 +2,9 @@ import { NavbarProps } from "./index.d";
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 
-import LanguageCombo from "@/components/ui/Combobox/LanguageCombo/index.tsx";
-import ThemeCombo from "@/components/ui/Combobox/ThemeCombo/index.tsx";
-import { Heading3 } from "@/components/ui/Typography/index.tsx";
+import { Heading3 } from "@/components/base/Typography";
+import LanguageCombo from "@/components/ui/Combobox/LanguageCombo";
+import ThemeCombo from "@/components/ui/Combobox/ThemeCombo";
 import { cn } from "@/lib/utils.ts";
 
 const Navbar: FunctionComponent<NavbarProps> = ({

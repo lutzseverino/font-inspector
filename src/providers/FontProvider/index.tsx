@@ -1,6 +1,7 @@
 import { FontProviderProps } from "./index.d";
 import { FunctionComponent, useMemo, useState } from "react";
-import FontContext from "src/contexts/Font";
+
+import FontContext from "@/contexts/Font";
 
 const FontProvider: FunctionComponent<FontProviderProps> = ({ children }) => {
   const [font, setFont] = useState<File | null>(null);

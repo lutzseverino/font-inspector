@@ -2,15 +2,15 @@ import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
-import Layout from "@/components/Layout/index.tsx";
-import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
-import { Spinner } from "@/components/ui/Spinner/index.tsx";
+import Layout from "@/components/base/Layout";
 import {
   Heading3,
   InlineCode,
   Lead,
   Muted,
-} from "@/components/ui/Typography/index.tsx";
+} from "@/components/base/Typography";
+import FileArea, { FileAreaSection } from "@/components/ui/FileArea";
+import { Spinner } from "@/components/ui/Spinner";
 import useFont from "@/hooks/useFont.tsx";
 
 const Start = () => {

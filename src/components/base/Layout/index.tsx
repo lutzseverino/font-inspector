@@ -1,7 +1,7 @@
 import { LayoutProps } from "./index.d";
 import { FunctionComponent } from "react";
 
-import Navbar from "@/components/Layout/Navbar/index.tsx";
+import Navbar from "@/components/base/Layout/Navbar";
 
 const Layout: FunctionComponent<LayoutProps> = ({
   fullscreen = false,
