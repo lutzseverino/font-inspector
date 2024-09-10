@@ -1,12 +1,7 @@
-import { Theme, ThemeProviderProps, ThemeProviderState } from "./index.d";
-import { createContext, useEffect, useState } from "react";
+import { Theme, ThemeProviderProps } from "./index.d";
+import { useEffect, useState } from "react";
 
-const initialState: ThemeProviderState = {
-  theme: "system",
-  setTheme: () => null,
-};
-
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+import ThemeContext from "@/contexts/Theme";
 
 function ThemeProvider({
   children,
@@ -45,10 +40,10 @@ function ThemeProvider({
   };
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeContext.Provider {...props} value={value}>
       {children}
-    </ThemeProviderContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
-export { ThemeProvider, ThemeProviderContext };
+export { ThemeProvider };

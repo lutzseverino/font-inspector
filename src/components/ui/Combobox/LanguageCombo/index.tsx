@@ -9,7 +9,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Combobox } from "@/components/ui/Combobox/index.tsx";
+import { Combobox } from "@/components/ui/Combobox";
 import usePageTitle from "@/hooks/usePageTitle.tsx";
 
 const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {

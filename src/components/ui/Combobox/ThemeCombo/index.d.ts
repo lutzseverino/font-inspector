@@ -1,4 +1,4 @@
-import { Theme } from "@/providers/ThemeProvider/index.tsx";
+import { Theme } from "@/providers/Theme";
 
 export interface ThemeComboProps {}
 
