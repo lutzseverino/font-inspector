@@ -13,7 +13,7 @@ export const FileAreaSection: FunctionComponent<FileAreaSectionProps> = ({
     <section
       className={`${cn(
         className,
-        `cursor-pointer rounded-xl ${invisible ? "" : "border border-dashed border-input"} p-4`,
+        `cursor-pointer rounded-md ${invisible ? "" : "border border-dashed border-input"} p-4`,
       )}`}
     >
       {children}
