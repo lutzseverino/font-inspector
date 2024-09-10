@@ -11,7 +11,6 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
-    load: "languageOnly",
     fallbackLng: "en",
     supportedLngs: ["en", "es"],
     preload: ["en", "es"],
