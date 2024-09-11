@@ -1,0 +1,30 @@
+{
+  "tooltips": {
+    "index": "Índice",
+    "name": "Nombre",
+    "unicode": "Unicode",
+    "x-min": "X Mínimo",
+    "y-min": "Y Mínimo",
+    "x-max": "X Máximo",
+    "y-max": "Y Máximo"
+  },
+  "copy": {
+    "label": "Copiar",
+    "name": "Nombre",
+    "unicode": "Unicode",
+    "svg": "SVG",
+    "success": "Glifo copiado al portapapeles."
+  },
+  "titles": {
+    "bounding-box": "Caja delimitadora",
+    "advance-width": "Ancho de avance",
+    "left-side-bearing": "Cojinete izquierdo"
+  },
+  "unnamed": "Sin nombre",
+  "n-a": "N/A",
+  "accessibility": {
+    "button-label": "Mostrar detalles del glifo {name}",
+    "dialog-description": "Detalles del glifo {name}",
+    "copy-label": "Seleccionar un detalle del glifo {name} para copiar al portapapeles"
+  }
+}
