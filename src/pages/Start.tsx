@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 import Layout from "@/components/base/Layout";
@@ -17,8 +18,8 @@ import useFiFontBuilder from "@/hooks/useFiFontBuilder.tsx";
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
   const { loading, buildFiFont } = useFiFontBuilder();
-  const { setFont } = useFont();
   const { setFiFont } = useFiFont();
+  const navigate = useNavigate();
 
   const [file, setFile] = useState<File>();
 
@@ -30,11 +31,11 @@ const Start = () => {
     async (files: File[]) => {
       if (files.length > 0) {
         setFile(files[0]);
-        setFont(await buildFiFont(files[0]));
         setFiFont(await buildFiFont(files[0]));
+        navigate("/font");
       }
     },
-    [buildFiFont, setFiFont],
+    [buildFiFont, navigate, setFiFont],
   );
 
   const handleFileTypeOutOfRange = useCallback(() => {
