@@ -34,7 +34,7 @@ export function Combobox<T>({
   collisionPadding = 16,
   buttonProps,
 }: ComboboxProps<T>) {
-  const { t } = useTranslation("components/combobox");
+  const { t } = useTranslation("components/combobox/index");
 
   placeholder = placeholder ?? t("placeholder");
   notFound = notFound ?? t("not-found");

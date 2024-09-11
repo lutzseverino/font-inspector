@@ -8,7 +8,7 @@ import { useTheme } from "@/hooks/useTheme.tsx";
 import { Theme } from "@/providers/Theme/index.d";
 
 const ThemeCombo: FunctionComponent<ThemeComboProps> = () => {
-  const { t } = useTranslation(["components/theme-combo"]);
+  const { t } = useTranslation("components/combobox/theme");
   const { theme, setTheme } = useTheme();
 
   const items: ThemeItem[] = useMemo(
