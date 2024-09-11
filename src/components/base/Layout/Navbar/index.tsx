@@ -18,7 +18,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({
     <nav
       className={cn(
         className,
-        `flex p-4 ${hidden ?? "border-b border-border"} justify-between items-center`,
+        `flex p-4 ${hidden ? "" : "border-b border-border"} justify-between items-center`,
       )}
     >
       <div>{!hideTitle && <Heading3>{t("name")}</Heading3>}</div>
