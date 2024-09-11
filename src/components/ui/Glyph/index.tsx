@@ -88,17 +88,19 @@ const Glyph: FunctionComponent<GlyphProps> = ({ glyph }) => {
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="h-auto flex flex-col px-3"
+            className="flex h-auto flex-col px-3"
             aria-label={t("accessibility.button-label", { name })}
           >
-            <GlyphGraphic
-              path={path}
-              viewBoxWidth={glyph.advanceWidth ?? 0}
-              viewBoxHeight={glyph.advanceWidth ?? 0}
-              width={48}
-              height={48}
-            />
-            <div className="flex flex-row w-full justify-between mt-4">
+            <div className="flex grow items-center">
+              <GlyphGraphic
+                path={path}
+                viewBoxWidth={glyph.advanceWidth ?? 0}
+                viewBoxHeight={glyph.advanceWidth ?? 0}
+                width={48}
+                height={48}
+              />
+            </div>
+            <div className="mt-4 flex w-full flex-row justify-between">
               <div className="overflow-hidden text-ellipsis">
                 <Small>{name}</Small>
               </div>
