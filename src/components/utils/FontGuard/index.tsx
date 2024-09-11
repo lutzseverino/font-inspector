@@ -1,13 +1,16 @@
 import { FontGuardProps } from "./index.d";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useFont from "@/hooks/useFont.tsx";
+import useFiFont from "@/hooks/useFiFont.tsx";
 
 const FontGuard: FunctionComponent<FontGuardProps> = ({ children }) => {
-  const { font } = useFont();
+  const { fiFont } = useFiFont();
   const navigate = useNavigate();
-  if (!font) navigate("/"); // TODO: Grab route from configuration.
+
+  useEffect(() => {
+    if (!fiFont) navigate("/"); // TODO: Grab route from configuration.
+  }, [fiFont, navigate]);
 
   return children;
 };
