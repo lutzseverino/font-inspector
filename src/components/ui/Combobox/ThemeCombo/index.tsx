@@ -1,14 +1,15 @@
 import { ThemeComboProps, ThemeItem } from "./index.d";
+
 import { SunMoon } from "lucide-react";
 import { FunctionComponent, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Combobox } from "@/components/ui/Combobox/index.tsx";
+import { Combobox } from "@/components/ui/Combobox";
 import { useTheme } from "@/hooks/useTheme.tsx";
-import { Theme } from "@/providers/ThemeProvider/index.d";
+import { Theme } from "@/providers/Theme/index.d";
 
 const ThemeCombo: FunctionComponent<ThemeComboProps> = () => {
-  const { t } = useTranslation(["components/theme-combo"]);
+  const { t } = useTranslation("components/combobox/theme");
   const { theme, setTheme } = useTheme();
 
   const items: ThemeItem[] = useMemo(

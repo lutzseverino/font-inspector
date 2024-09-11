@@ -1,0 +1,30 @@
+{
+  "tooltips": {
+    "index": "Index",
+    "name": "Name",
+    "unicode": "Unicode",
+    "x-min": "X Minimum",
+    "y-min": "Y Minimum",
+    "x-max": "X Maximum",
+    "y-max": "Y Maximum"
+  },
+  "copy": {
+    "label": "Copy",
+    "name": "Name",
+    "unicode": "Unicode",
+    "svg": "SVG",
+    "success": "Glyph copied to your clipboard."
+  },
+  "titles": {
+    "bounding-box": "Bounding box",
+    "advance-width": "Advance width",
+    "left-side-bearing": "Left side bearing"
+  },
+  "unnamed": "Unnamed",
+  "n-a": "N/A",
+  "accessibility": {
+    "button-label": "Show details for glyph {name}",
+    "dialog-description": "Details for glyph {name}",
+    "copy-label": "Select a detail for glyph {name} to copy to your clipboard"
+  }
+}

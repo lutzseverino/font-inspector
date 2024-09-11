@@ -1,4 +1,5 @@
 import { ComboboxProps } from "./index.d";
+
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -34,7 +35,7 @@ export function Combobox<T>({
   collisionPadding = 16,
   buttonProps,
 }: ComboboxProps<T>) {
-  const { t } = useTranslation("components/combobox");
+  const { t } = useTranslation("components/combobox/index");
 
   placeholder = placeholder ?? t("placeholder");
   notFound = notFound ?? t("not-found");
@@ -99,7 +100,7 @@ export function Combobox<T>({
           {!hideSearch && <CommandInput placeholder={placeholder} />}
           <CommandList>
             <CommandEmpty>
-              <div className="px-6 text-nowrap">{notFound}</div>
+              <div className="text-nowrap px-6">{notFound}</div>
             </CommandEmpty>
             <CommandGroup>
               {filteredItems.map((item) => (

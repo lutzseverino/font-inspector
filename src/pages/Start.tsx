@@ -1,31 +1,41 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-import Layout from "@/components/Layout/index.tsx";
-import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
-import { Spinner } from "@/components/ui/Spinner/index.tsx";
+import Layout from "@/components/base/Layout";
 import {
   Heading3,
   InlineCode,
   Lead,
   Muted,
-} from "@/components/ui/Typography/index.tsx";
-import useFont from "@/hooks/useFont.tsx";
+} from "@/components/base/Typography";
+import FileArea, { FileAreaSection } from "@/components/ui/FileArea";
+import { Spinner } from "@/components/ui/Spinner";
+import useFiFont from "@/hooks/useFiFont.tsx";
+import useFiFontBuilder from "@/hooks/useFiFontBuilder.tsx";
 
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
-  const { font, setFont } = useFont();
+  const { loading, buildFiFont } = useFiFontBuilder();
+  const { setFiFont } = useFiFont();
+  const navigate = useNavigate();
+
+  const [file, setFile] = useState<File>();
 
   const fileTypes = t("pages/start:file-types");
   const fileTypeArray = useMemo(() => fileTypes.split(", "), [fileTypes]);
   const dropToStart = t("pages/start:drop-to-start", { fileTypes });
 
   const handleFileAreaChange = useCallback(
-    (files: File[]) => {
-      if (files.length > 0) setFont(files[0]);
+    async (files: File[]) => {
+      if (files.length > 0) {
+        setFile(files[0]);
+        setFiFont(await buildFiFont(files[0]));
+        navigate("/font");
+      }
     },
-    [setFont],
+    [buildFiFont, navigate, setFiFont],
   );
 
   const handleFileTypeOutOfRange = useCallback(() => {
@@ -57,12 +67,12 @@ const Start = () => {
                 <InlineCode>{fileTypes}</InlineCode>
                 {dropToStart.split(fileTypes)[1]}
               </Lead>
-              {font && (
+              {loading && (
                 <div className="mt-6">
                   <Muted>
                     <Spinner className="mr-2 inline" />
                     <span className="align-middle">
-                      {`${t("pages/start:evaluating")} ${font?.name}`}
+                      {`${t("pages/start:evaluating")} ${file?.name}`}
                     </span>
                   </Muted>
                 </div>

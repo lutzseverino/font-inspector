@@ -1,7 +1,8 @@
 import { PopoverContentProps } from "@radix-ui/react-popover";
 
 import { ButtonProps } from "../button.tsx";
-import { Key, ReactNode } from "react";
+
+import { ReactNode } from "react";
 
 export interface ComboboxProps<T> {
   className?: string;

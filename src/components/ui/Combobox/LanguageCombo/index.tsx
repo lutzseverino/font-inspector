@@ -1,12 +1,27 @@
 import { LanguageComboProps, LanguageItem } from "./index.d";
+
 import { Languages } from "lucide-react";
-import { FunctionComponent, useCallback, useMemo } from "react";
+import {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { Combobox } from "@/components/ui/Combobox/index.tsx";
+import { Combobox } from "@/components/ui/Combobox";
+import usePageTitle from "@/hooks/usePageTitle.tsx";
 
 const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {
-  const { i18n, t } = useTranslation("metadata");
+  const { i18n, t } = useTranslation(["metadata", "app"]);
+  const [title, setTitle] = useState(t("app:name"));
+
+  usePageTitle(title);
+
+  useEffect(() => {
+    setTitle(t("app:name"));
+  }, [setTitle, t, i18n.language]);
 
   const languages = useMemo(
     () =>
@@ -31,16 +46,21 @@ const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {
     [],
   );
   const handleGetValue = useCallback((item: LanguageItem) => item.value, []);
+  const handleValueChange = useCallback(
+    (value: string) => i18n.changeLanguage(value),
+    [i18n],
+  );
 
   return (
     <Combobox<LanguageItem>
       items={items}
       value={i18n.language}
-      onValueChange={i18n.changeLanguage}
+      onValueChange={handleValueChange}
       getLabel={handleGetLabel}
       getDisplayLabel={handleGetDisplayLabel}
       getValue={handleGetValue}
       hideChevrons
+      hideSearch={languages.length < 8}
       buttonProps={{
         size: "icon",
       }}
