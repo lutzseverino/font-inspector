@@ -11,7 +11,7 @@ const Heading1: FunctionComponent<TypographyProps> = ({
   return (
     <h1
       className={cn(
-        `scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${inline ? "inline" : ""}`,
+        `scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -45,7 +45,7 @@ const Heading3: FunctionComponent<TypographyProps> = ({
   return (
     <h3
       className={cn(
-        `scroll-m-20 text-2xl font-semibold tracking-tight ${inline ? "inline" : ""}`,
+        `scroll-m-20 text-2xl font-semibold tracking-tight ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -62,7 +62,7 @@ const Heading4: FunctionComponent<TypographyProps> = ({
   return (
     <h4
       className={cn(
-        `scroll-m-20 text-xl font-semibold tracking-tight ${inline ? "inline" : ""}`,
+        `scroll-m-20 text-xl font-semibold tracking-tight ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -75,11 +75,12 @@ const Paragraph: FunctionComponent<TypographyProps> = ({
   children,
   inline,
   className,
+  disableMargin = false,
 }) => {
   return (
     <p
       className={cn(
-        `leading-7 [&:not(:first-child)]:mt-6 ${inline ? "inline" : ""}`,
+        `leading-7 ${!disableMargin ? "[&:not(:first-child)]:mt-6" : ""} ${inline ? "inline" : ""}`,
         className,
       )}
     >
@@ -92,11 +93,12 @@ const Blockquote: FunctionComponent<TypographyProps> = ({
   children,
   inline,
   className,
+  disableMargin = false,
 }) => {
   return (
     <blockquote
       className={cn(
-        `mt-6 border-l-2 pl-6 italic ${inline ? "inline" : ""}`,
+        `border-l-2 pl-6 italic ${!disableMargin ? "mt-6" : ""} ${inline ? "inline" : ""}`,
         className,
       )}
     >
@@ -112,7 +114,7 @@ const InlineCode: FunctionComponent<TypographyProps> = ({
   return (
     <code
       className={cn(
-        "relative inline rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
+        `relative inline rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold `,
         className,
       )}
     >
@@ -129,7 +131,7 @@ const Lead: FunctionComponent<TypographyProps> = ({
   return (
     <p
       className={cn(
-        `text-xl text-muted-foreground ${inline ? "inline" : ""}`,
+        `text-xl text-muted-foreground ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -146,7 +148,7 @@ const Large: FunctionComponent<TypographyProps> = ({
   return (
     <div
       className={cn(
-        `text-lg font-semibold ${inline ? "inline" : ""}`,
+        `text-lg font-semibold ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -163,7 +165,7 @@ const Small: FunctionComponent<TypographyProps> = ({
   return (
     <small
       className={cn(
-        `text-sm font-medium leading-none ${inline ? "inline" : ""}`,
+        `text-sm font-medium leading-none ${inline ? "inline" : ""} `,
         className,
       )}
     >
@@ -180,7 +182,7 @@ const Muted: FunctionComponent<TypographyProps> = ({
   return (
     <p
       className={cn(
-        `text-sm text-muted-foreground ${inline ? "inline" : ""}`,
+        `text-sm text-muted-foreground ${inline ? "inline" : ""} `,
         className,
       )}
     >
