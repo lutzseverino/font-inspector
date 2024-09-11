@@ -1,4 +1,5 @@
 import { FontGuardProps } from "./index.d";
+
 import { FunctionComponent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -1,4 +1,5 @@
 import { GlyphAttributeProps } from "./index.d";
+
 import { FunctionComponent } from "react";
 
 import {

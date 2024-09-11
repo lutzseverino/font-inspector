@@ -1,4 +1,5 @@
 import { ThemeComboProps, ThemeItem } from "./index.d";
+
 import { SunMoon } from "lucide-react";
 import { FunctionComponent, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";

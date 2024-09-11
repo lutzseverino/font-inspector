@@ -1,4 +1,5 @@
 import { LayoutProps } from "./index.d";
+
 import { FunctionComponent } from "react";
 
 import Navbar from "@/components/base/Layout/Navbar";
@@ -12,10 +13,10 @@ const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col min-h-svh ${fullscreen ? "h-svh" : "h-auto"} `}
+      className={`flex min-h-svh flex-col ${fullscreen ? "h-svh" : "h-auto"} `}
     >
       {!hideNavbar && <Navbar {...navbarProps} />}
-      <div className="grow relative">
+      <div className="relative grow">
         <div
           className={`absolute bottom-0 left-0 right-0 top-0 ${disablePadding ? "p-0" : "p-4"} `}
         >

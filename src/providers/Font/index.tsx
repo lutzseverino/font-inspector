@@ -1,4 +1,5 @@
 import { FontProviderProps } from "./index.d";
+
 import { FunctionComponent, useMemo, useState } from "react";
 
 import FontContext from "@/contexts/Font";

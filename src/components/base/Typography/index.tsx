@@ -1,4 +1,5 @@
 import { TypographyProps } from "./index.d";
+
 import { FunctionComponent } from "react";
 
 import { cn } from "@/lib/utils.ts";
@@ -114,7 +115,7 @@ const InlineCode: FunctionComponent<TypographyProps> = ({
   return (
     <code
       className={cn(
-        `relative inline rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold `,
+        `relative inline rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`,
         className,
       )}
     >

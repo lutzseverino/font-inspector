@@ -1,4 +1,5 @@
 import { FileAreaProps, FileAreaSectionProps } from "./index.d";
+
 import { FunctionComponent, useEffect, useRef } from "react";
 
 import useFileDrop from "@/hooks/useFileDrop.tsx";

@@ -1,4 +1,5 @@
 import { FontContextType } from "./index.d";
+
 import { createContext } from "react";
 
 const initialContext: FontContextType = {

@@ -1,4 +1,5 @@
 import { GlyphSVGProps } from "./index.d";
+
 import { FunctionComponent } from "react";
 
 const GlyphGraphic: FunctionComponent<GlyphSVGProps> = ({

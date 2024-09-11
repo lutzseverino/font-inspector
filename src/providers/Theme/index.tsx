@@ -1,4 +1,5 @@
 import { Theme, ThemeProviderProps } from "./index.d";
+
 import { useEffect, useState } from "react";
 
 import ThemeContext from "@/contexts/Theme";

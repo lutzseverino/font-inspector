@@ -2,6 +2,7 @@ import GlyphAttribute from "./Attribute";
 import GlyphBoundingBoxAttributes from "./BoundingBoxAttributes";
 import GlyphGraphic from "./Graphic";
 import { GlyphProps } from "./index.d";
+
 import {
   FocusEvent,
   FunctionComponent,

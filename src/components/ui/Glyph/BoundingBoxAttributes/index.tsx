@@ -1,4 +1,5 @@
 import { GlyphBoundingBoxAttributesProps } from "./index.d";
+
 import { Fragment, FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 

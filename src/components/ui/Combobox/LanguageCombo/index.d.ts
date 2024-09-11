@@ -1,6 +1,4 @@
-export interface LanguageComboProps {
-
-}
+export type LanguageComboProps = object;
 
 export interface LanguageItem {
   label: string;

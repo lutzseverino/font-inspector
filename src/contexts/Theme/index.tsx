@@ -1,4 +1,5 @@
 import { ThemeProviderState } from "./index.d";
+
 import { createContext } from "react";
 
 const initialState: ThemeProviderState = {
