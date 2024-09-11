@@ -2,16 +2,17 @@ import { FontProviderProps } from "./index.d";
 import { FunctionComponent, useMemo, useState } from "react";
 
 import FontContext from "@/contexts/Font";
+import { FiFont } from "@/lib/types.ts";
 
 const FontProvider: FunctionComponent<FontProviderProps> = ({ children }) => {
-  const [font, setFont] = useState<File | null>(null);
+  const [fiFont, setFiFont] = useState<FiFont | null>(null);
 
   const value = useMemo(
     () => ({
-      font,
-      setFont,
+      fiFont: fiFont,
+      setFiFont: setFiFont,
     }),
-    [font, setFont],
+    [fiFont, setFiFont],
   );
 
   return <FontContext.Provider value={value}>{children}</FontContext.Provider>;

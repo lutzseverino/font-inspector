@@ -11,13 +11,14 @@ import {
 } from "@/components/base/Typography";
 import FileArea, { FileAreaSection } from "@/components/ui/FileArea";
 import { Spinner } from "@/components/ui/Spinner";
+import useFiFont from "@/hooks/useFiFont.tsx";
 import useFiFontBuilder from "@/hooks/useFiFontBuilder.tsx";
-import useFont from "@/hooks/useFont.tsx";
 
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
   const { loading, buildFiFont } = useFiFontBuilder();
   const { setFont } = useFont();
+  const { setFiFont } = useFiFont();
 
   const [file, setFile] = useState<File>();
 
@@ -30,9 +31,10 @@ const Start = () => {
       if (files.length > 0) {
         setFile(files[0]);
         setFont(await buildFiFont(files[0]));
+        setFiFont(await buildFiFont(files[0]));
       }
     },
-    [buildFiFont, setFont],
+    [buildFiFont, setFiFont],
   );
 
   const handleFileTypeOutOfRange = useCallback(() => {

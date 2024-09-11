@@ -2,8 +2,8 @@ import { FontContextType } from "./index.d";
 import { createContext } from "react";
 
 const initialContext: FontContextType = {
-  font: null,
-  setFont: () => {},
+  fiFont: null,
+  setFiFont: () => {},
 };
 
 const FontContext = createContext<FontContextType>(initialContext);
