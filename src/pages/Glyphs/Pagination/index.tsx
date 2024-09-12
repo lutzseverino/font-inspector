@@ -57,7 +57,10 @@ const GlyphsPagination: FunctionComponent<GlyphsPaginationProps> = ({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" onClick={handlePreviousClick} />
+          <PaginationPrevious
+            className="cursor-pointer"
+            onClick={handlePreviousClick}
+          />
         </PaginationItem>
 
         {currentPage > 2 && (
@@ -69,8 +72,8 @@ const GlyphsPagination: FunctionComponent<GlyphsPaginationProps> = ({
         {visiblePages.map((pageNumber) => (
           <PaginationItem key={pageNumber}>
             <PaginationLink
+              className="cursor-pointer"
               isActive={pageNumber === currentPage}
-              href="#"
               onClick={() => handlePageClick(pageNumber)}
             >
               {pageNumber}
@@ -85,7 +88,10 @@ const GlyphsPagination: FunctionComponent<GlyphsPaginationProps> = ({
         )}
 
         <PaginationItem>
-          <PaginationNext href="#" onClick={handleNextClick} />
+          <PaginationNext
+            className="cursor-pointer"
+            onClick={handleNextClick}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

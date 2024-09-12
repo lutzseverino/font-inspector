@@ -56,6 +56,7 @@ const Glyphs: FunctionComponent = () => {
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
+      setCurrentPage(1);
       const value = event.target.value.toLowerCase();
       const filtered = glyphs.filter((glyph) =>
         glyph.props.glyph.name.toLowerCase().includes(value),
