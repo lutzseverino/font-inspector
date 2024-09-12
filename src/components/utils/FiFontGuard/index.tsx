@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import useFiFont from "@/hooks/useFiFont.tsx";
 
-const FontGuard: FunctionComponent<FontGuardProps> = ({ children }) => {
+const FiFontGuard: FunctionComponent<FontGuardProps> = ({ children }) => {
   const { fiFont } = useFiFont();
   const navigate = useNavigate();
 
@@ -16,4 +16,4 @@ const FontGuard: FunctionComponent<FontGuardProps> = ({ children }) => {
   return children;
 };
 
-export default FontGuard;
+export default FiFontGuard;
