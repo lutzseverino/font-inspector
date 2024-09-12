@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import Layout from "@/components/base/Layout";
 import Glyph from "@/components/ui/Glyph";
 import { Input } from "@/components/ui/input.tsx";
+import FiFontDropzone from "@/components/utils/FiFontDropzone/index.tsx";
 import FiFontGuard from "@/components/utils/FiFontGuard";
 import useFiFont from "@/hooks/useFiFont.tsx";
 
@@ -66,27 +67,33 @@ const Glyphs: FunctionComponent = () => {
   );
 
   return (
-    <FiFontGuard>
-      <Layout fullscreen>
-        <div className="flex h-full flex-col items-center">
-          <div className="mb-4 w-full sm:w-96">
-            <Input placeholder={t("search")} onChange={handleSearch} />
-          </div>
-          <div className="grid w-full grow grid-cols-2 grid-rows-5 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
-            {displayedGlyphs}
-          </div>
-          {totalPages > 1 && (
-            <div className="mt-6 pb-4">
-              <GlyphsPagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handleChangePage}
+    <FiFontDropzone>
+      <FiFontGuard>
+        <Layout fullscreen>
+          <div className="flex h-full flex-col items-center">
+            <div className="mb-4 w-full sm:w-96">
+              <Input
+                placeholder={t("search")}
+                id="search"
+                onChange={handleSearch}
               />
             </div>
-          )}
-        </div>
-      </Layout>
-    </FiFontGuard>
+            <div className="grid w-full grow grid-cols-2 grid-rows-5 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+              {displayedGlyphs}
+            </div>
+            {totalPages > 1 && (
+              <div className="mt-6 pb-4">
+                <GlyphsPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handleChangePage}
+                />
+              </div>
+            )}
+          </div>
+        </Layout>
+      </FiFontGuard>
+    </FiFontDropzone>
   );
 };
 
