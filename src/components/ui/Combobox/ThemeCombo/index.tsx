@@ -53,6 +53,7 @@ const ThemeCombo: FunctionComponent<ThemeComboProps> = () => {
       hideSearch
       buttonProps={{
         size: "icon",
+        "aria-label": t("accessibility.label"),
       }}
     />
   );

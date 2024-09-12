@@ -91,6 +91,7 @@ const Glyph: FunctionComponent<GlyphProps> = ({ glyph }) => {
             variant="outline"
             className="flex h-auto flex-col px-3"
             aria-label={t("accessibility.button-label", { name })}
+            aria-expanded={open}
           >
             <div className="flex grow items-center">
               <GlyphGraphic

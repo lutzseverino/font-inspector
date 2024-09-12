@@ -1,5 +1,8 @@
 {
   "light": "Claro",
   "dark": "Oscuro",
-  "system": "Sistema"
+  "system": "Sistema",
+  "accessibility": {
+    "label": "Selecciona un tema"
+  }
 }

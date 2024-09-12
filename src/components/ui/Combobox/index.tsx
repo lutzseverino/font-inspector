@@ -78,8 +78,8 @@ export function Combobox<T>({
           ref={buttonRef}
           variant="outline"
           role="combobox"
-          aria-expanded={open}
           className={className}
+          aria-expanded={open}
         >
           {value
             ? handleGetDisplayLabel(

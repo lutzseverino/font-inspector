@@ -14,7 +14,11 @@ import { Combobox } from "@/components/ui/Combobox";
 import usePageTitle from "@/hooks/usePageTitle.tsx";
 
 const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {
-  const { i18n, t } = useTranslation(["metadata", "app"]);
+  const { i18n, t } = useTranslation([
+    "components/combobox/language",
+    "metadata",
+    "app",
+  ]);
   const [title, setTitle] = useState(t("app:name"));
 
   usePageTitle(title);
@@ -63,6 +67,7 @@ const LanguageCombo: FunctionComponent<LanguageComboProps> = () => {
       hideSearch={languages.length < 8}
       buttonProps={{
         size: "icon",
+        "aria-label": t("accessibility.label"),
       }}
     />
   );
