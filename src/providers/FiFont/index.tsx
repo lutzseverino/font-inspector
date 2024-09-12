@@ -9,13 +9,19 @@ const FiFontProvider: FunctionComponent<FiFontProviderProps> = ({
   children,
 }) => {
   const [fiFont, setFiFont] = useState<FiFont | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
 
   const value = useMemo(
     () => ({
-      fiFont: fiFont,
-      setFiFont: setFiFont,
+      fiFont,
+      setFiFont,
+      loading,
+      setLoading,
+      file,
+      setFile,
     }),
-    [fiFont, setFiFont],
+    [fiFont, file, loading],
   );
 
   return (

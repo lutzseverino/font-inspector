@@ -1,7 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 
 import Layout from "@/components/base/Layout/index.tsx";
 import {
@@ -10,78 +7,65 @@ import {
   Lead,
   Muted,
 } from "@/components/base/Typography/index.tsx";
-import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
+import Dropzone from "@/components/ui/Dropzone/index.tsx";
 import { Spinner } from "@/components/ui/Spinner";
-import useFiFont from "@/hooks/useFiFont.tsx";
-import useFiFontBuilder from "@/hooks/useFiFontBuilder.tsx";
+import FiFontDropzone from "@/components/utils/FiFontDropzone";
+import useFiFontManager from "@/hooks/useFiFontManager.tsx";
 
 const Start = () => {
   const { t } = useTranslation(["app", "pages/start"]);
-  const { loading, buildFiFont } = useFiFontBuilder();
-  const { setFiFont } = useFiFont();
-  const navigate = useNavigate();
+  const {
+    handleFiFontChange,
+    handleFileTypeOutOfRange,
+    fileTypeArray,
+    fiFontContext,
+  } = useFiFontManager();
 
-  const [file, setFile] = useState<File>();
+  const { loading, file } = fiFontContext;
 
   const fileTypes = t("pages/start:file-types");
-  const fileTypeArray = useMemo(() => fileTypes.split(", "), [fileTypes]);
   const dropToStart = t("pages/start:drop-to-start", { fileTypes });
 
-  const handleFileAreaChange = useCallback(
-    async (files: File[]) => {
-      if (files.length > 0) {
-        setFile(files[0]);
-        setFiFont(await buildFiFont(files[0]));
-        navigate("/font");
-      }
-    },
-    [buildFiFont, navigate, setFiFont],
-  );
-
-  const handleFileTypeOutOfRange = useCallback(() => {
-    toast.error(t("pages/start:file-type-out-of-range", { fileTypes }));
-  }, [fileTypes, t]);
-
   return (
-    <Layout
-      fullscreen
-      disablePadding
-      navbarProps={{
-        hidden: true,
-        hideTitle: true,
-      }}
-    >
-      <FileArea
-        className="flex h-full items-center justify-center"
-        invisible
-        fileTypes={fileTypeArray}
-        onChange={handleFileAreaChange}
-        onFileTypeOutOfRange={handleFileTypeOutOfRange}
+    <FiFontDropzone>
+      <Layout
+        fullscreen
+        disablePadding
+        navbarProps={{
+          hidden: true,
+          hideTitle: true,
+        }}
       >
-        <div className="flex h-full flex-col items-center justify-center">
-          <FileAreaSection>
-            <div className="p-4">
-              <Heading3>{t("app:name")}</Heading3>
-              <Lead>
-                {dropToStart.split(fileTypes)[0]}
-                <InlineCode>{fileTypes}</InlineCode>
-                {dropToStart.split(fileTypes)[1]}
-              </Lead>
-              {loading && (
-                <div className="mt-6">
-                  <Muted>
-                    <Spinner className="mr-2 inline" />
-                    <span className="align-middle">
-                      {`${t("pages/start:evaluating")} ${file?.name}`}
-                    </span>
-                  </Muted>
-                </div>
-              )}
-            </div>
-          </FileAreaSection>
+        <div className="flex size-full flex-col items-center justify-center">
+          <div>
+            <Dropzone
+              fileTypes={fileTypeArray}
+              onChange={handleFiFontChange}
+              onFileTypeOutOfRange={handleFileTypeOutOfRange}
+            >
+              <div className="p-8">
+                <Heading3>{t("app:name")}</Heading3>
+                <Lead>
+                  {dropToStart.split(fileTypes)[0]}
+                  <InlineCode>{fileTypes}</InlineCode>
+                  {dropToStart.split(fileTypes)[1]}
+                </Lead>
+                {loading && (
+                  <div className="mt-6">
+                    <Muted>
+                      <Spinner className="mr-2 inline" />
+                      <span className="align-middle">
+                        {`${t("pages/start:evaluating")} ${file?.name}`}
+                      </span>
+                    </Muted>
+                  </div>
+                )}
+              </div>
+            </Dropzone>
+          </div>
         </div>
-      </FileArea>
-    </Layout>
+      </Layout>
+    </FiFontDropzone>
   );
 };
 

@@ -5,6 +5,10 @@ import { createContext } from "react";
 const initialContext: FiFontContextType = {
   fiFont: null,
   setFiFont: () => {},
+  loading: false,
+  setLoading: () => {},
+  file: null,
+  setFile: () => {},
 };
 
 const FiFontContext = createContext<FiFontContextType>(initialContext);
