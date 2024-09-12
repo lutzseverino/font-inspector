@@ -1,9 +1,5 @@
 import { lazy } from "react";
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { Navigate, RouterProvider, createHashRouter } from "react-router-dom";
 
 import { Toaster } from "@/components/ui/sonner.tsx";
 import { useTheme } from "@/hooks/useTheme.tsx";
@@ -12,7 +8,7 @@ import { FiFontProvider } from "@/providers/FiFont";
 const Glyphs = lazy(() => import("@/pages/Glyphs"));
 const Start = lazy(() => import("@/pages/Start"));
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/font",
     children: [
