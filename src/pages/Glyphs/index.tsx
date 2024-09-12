@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import Layout from "@/components/base/Layout";
 import Glyph from "@/components/ui/Glyph";
 import { Input } from "@/components/ui/input.tsx";
-import FontGuard from "@/components/utils/FontGuard/index.tsx";
+import FiFontGuard from "@/components/utils/FiFontGuard";
 import useFiFont from "@/hooks/useFiFont.tsx";
 
 const Glyphs: FunctionComponent = () => {
@@ -66,7 +66,7 @@ const Glyphs: FunctionComponent = () => {
   );
 
   return (
-    <FontGuard>
+    <FiFontGuard>
       <Layout fullscreen>
         <div className="flex h-full flex-col items-center">
           <div className="mb-4 w-full sm:w-96">
@@ -86,7 +86,7 @@ const Glyphs: FunctionComponent = () => {
           )}
         </div>
       </Layout>
-    </FontGuard>
+    </FiFontGuard>
   );
 };
 

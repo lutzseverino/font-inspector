@@ -10,7 +10,7 @@ import { useTheme } from "@/hooks/useTheme.tsx";
 import { FiFontProvider } from "@/providers/FiFont";
 
 const Glyphs = lazy(() => import("@/pages/Glyphs"));
-const Start = lazy(() => import("@/pages/Start.tsx"));
+const Start = lazy(() => import("@/pages/Start"));
 
 const router = createBrowserRouter([
   {

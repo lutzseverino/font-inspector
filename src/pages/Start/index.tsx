@@ -3,14 +3,14 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-import Layout from "@/components/base/Layout";
+import Layout from "@/components/base/Layout/index.tsx";
 import {
   Heading3,
   InlineCode,
   Lead,
   Muted,
-} from "@/components/base/Typography";
-import FileArea, { FileAreaSection } from "@/components/ui/FileArea";
+} from "@/components/base/Typography/index.tsx";
+import FileArea, { FileAreaSection } from "@/components/ui/FileArea/index.tsx";
 import { Spinner } from "@/components/ui/Spinner";
 import useFiFont from "@/hooks/useFiFont.tsx";
 import useFiFontBuilder from "@/hooks/useFiFontBuilder.tsx";
