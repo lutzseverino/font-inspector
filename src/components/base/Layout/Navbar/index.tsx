@@ -1,7 +1,8 @@
 import { NavbarProps } from "./index.d";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import { Heading3 } from "@/components/base/Typography";
 import LanguageCombo from "@/components/ui/Combobox/LanguageCombo";
@@ -14,6 +15,11 @@ const Navbar: FunctionComponent<NavbarProps> = ({
   hideTitle = false,
 }) => {
   const { t } = useTranslation("app");
+  const navigate = useNavigate();
+
+  const handleClickTitle = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
 
   return (
     <nav
@@ -22,7 +28,9 @@ const Navbar: FunctionComponent<NavbarProps> = ({
         `flex p-4 ${hidden ? "" : "border-b border-border"} items-center justify-between`,
       )}
     >
-      <div>{!hideTitle && <Heading3>{t("name")}</Heading3>}</div>
+      <div className="cursor-pointer" onClick={handleClickTitle}>
+        {!hideTitle && <Heading3>{t("name")}</Heading3>}
+      </div>
       <div></div>
       <div className="flex flex-row">
         <div className="ml-4">
