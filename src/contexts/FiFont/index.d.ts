@@ -1,6 +1,6 @@
 import { FiFont } from "@/lib/types.ts";
 
-export type FontContextType = {
+export type FiFontContextType = {
   fiFont: FiFont | null;
   setFiFont: (font: FiFont) => void;
 };

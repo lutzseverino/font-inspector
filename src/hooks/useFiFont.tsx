@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
-import FontContext from "@/contexts/Font";
+import FiFontContext from "@/contexts/FiFont";
 
 const useFiFont = () => {
-  const context = useContext(FontContext);
+  const context = useContext(FiFontContext);
   if (!context) throw new Error("useFont must be used within a FontProvider");
   return context;
 };

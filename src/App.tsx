@@ -7,7 +7,7 @@ import {
 
 import { Toaster } from "@/components/ui/sonner.tsx";
 import { useTheme } from "@/hooks/useTheme.tsx";
-import { FontProvider } from "@/providers/Font";
+import { FiFontProvider } from "@/providers/FiFont";
 
 const Glyphs = lazy(() => import("@/pages/Glyphs"));
 const Start = lazy(() => import("@/pages/Start.tsx"));
@@ -27,10 +27,10 @@ function App() {
   const { theme } = useTheme();
 
   return (
-    <FontProvider>
+    <FiFontProvider>
       <RouterProvider router={router} />
       <Toaster richColors theme={theme} />
-    </FontProvider>
+    </FiFontProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export interface FontProviderProps {
+export interface FiFontProviderProps {
   children: ReactNode;
 }
